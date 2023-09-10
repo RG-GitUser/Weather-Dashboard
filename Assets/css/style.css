@@ -1,0 +1,32 @@
+h1 {
+    font-size: 200%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#search {
+    font-size: 150%;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+#searchBtn {
+  
+}
+
+.btnList {
+    display: flex;
+    flex-direction: column; /* Display buttons vertically */
+    align-items: left;  
+    gap: 10px;
+
+}
+
+.button {
+    padding: 10px;
+    background-color: #2F4F4F;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

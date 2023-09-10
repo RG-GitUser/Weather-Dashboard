@@ -5,6 +5,7 @@ const searchButton = document.getElementById('searchBtn');
 
 
 searchButton.addEventListener('click', () => {
+    console.log()
     const location = locationInput.value;
     if (location) {
         getWeatherData(location);
@@ -34,7 +35,80 @@ function displayWeatherData(data) {
     const description = weather[0].description;
 
     weatherResult.innerHTML = `<p>Location: ${name}</p>
-    <p>Temperature: ${temperature.toFixed(2)}°C</p>
+    <p>Temperature: ${temp.toFixed(2)}°C</p>
     <p>Description: ${description}</p>`;
     console.log();
 }
+
+function getForecastData(location) {
+    fetch(`api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}`)
+    .then(response => response.json())
+    .then(data => {
+        displayForecastData(data);
+    })
+    .catch(error => {
+        console.error('error fetching forecast data:', error);
+        weatherResult.innerHTML = 'Error fetching forcast data. Please try again later.';
+
+    });
+
+}
+
+function displayForecastData(data) {
+    const forecastList = data.list;
+
+
+    forecastList.forEach(item => {
+        const timestamp = item.dt_txt;
+        const date = new Date(timestamp);
+        const temperature = item.main.temp - 273.15; 
+
+        const forecastInfo = `<p>Date: ${date.toLocaleDateString()}</p>
+                              <p>Temperature: ${temperature.toFixed(2)}°C</p>`;
+
+        weatherResult.insertAdjacentHTML('beforeend', forecastInfo);
+    });
+}
+
+searchButton.addEventListener('click', () => {
+    const location = locationInput.value;
+    if (location) {
+        getWeatherData(location); // Fetch current weather
+        getForecastData(location); // Fetch 5-day forecast
+    } else {
+        alert('Please enter a location.');
+    }
+});
+
+
+
+
+// const latitude =  '45.9800576';
+// const longitude = '-66.7025408';
+// const apiUrl = '`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`';
+
+
+// async function getWeatherData() {
+//     try {
+//         const response = await fetch(apiUrl);
+//         if (response.ok) {
+//             const weatherData = await response.json();
+//             displayWeatherInfo(weatherData)
+//         } else {
+//             console.error('Error', response.statusText);
+//         }
+//     } catch (error) {
+//         console.error('An error occured', error);
+//     }
+// }
+
+// function displayWeatherInfo(data) {
+//     const temperature = data.main.temp;
+//     const weatherDescription = data.weather[0].description;
+
+//     console.log(`Temperature: ${temperature}°C`);
+//     console.log(`Weather: ${weatherDescription}`);
+
+// }
+
+// getWeatherData(); 
