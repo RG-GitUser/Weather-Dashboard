@@ -79,36 +79,3 @@ searchButton.addEventListener('click', () => {
         alert('Please enter a location.');
     }
 });
-
-
-
-
-// const latitude =  '45.9800576';
-// const longitude = '-66.7025408';
-// const apiUrl = '`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`';
-
-
-// async function getWeatherData() {
-//     try {
-//         const response = await fetch(apiUrl);
-//         if (response.ok) {
-//             const weatherData = await response.json();
-//             displayWeatherInfo(weatherData)
-//         } else {
-//             console.error('Error', response.statusText);
-//         }
-//     } catch (error) {
-//         console.error('An error occured', error);
-//     }
-// }
-
-// function displayWeatherInfo(data) {
-//     const temperature = data.main.temp;
-//     const weatherDescription = data.weather[0].description;
-
-//     console.log(`Temperature: ${temperature}°C`);
-//     console.log(`Weather: ${weatherDescription}`);
-
-// }
-
-// getWeatherData(); 
