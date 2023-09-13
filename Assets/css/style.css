@@ -9,15 +9,23 @@ h1 {
 
 }
 
+
+
 #searchBtn {
-  
+    border-style: none;
+    background-color: #8ECDDD;
+    border-radius: 5px;
+    border-color: #8ECDDD;
+    width: 10%;
+    cursor: pointer;
 }
 
 .btnList {
     display: flex;
-    flex-direction: column; /* Display buttons vertically */
+    flex-direction: column; 
     align-items: left;  
     gap: 10px;
+    width: 170px;
 
 }
 
@@ -28,6 +36,27 @@ h1 {
     border: none;
     border-radius: 5px;
     width: 22.5%;
+    margin-top: 1.5%;
     cursor: pointer;
 }
 
+#weatherResult{
+
+    font-family: 'Quicksand', sans-serif;  
+
+
+}
+
+.forecast-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.forecast-card{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px
+    
+}
