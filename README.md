@@ -19,6 +19,7 @@ In this project, you will be able to see my use of JavaScript to generate a func
 Users are able to search up their desired city to view current weather and a five day forecast. 
 
 Screenshot:
+![image](https://github.com/RG-GitUser/Weather-Dashboard/assets/139709113/fa9ba6f2-8314-4842-9012-270e80c840ee)
 
 
 ## Credits 
